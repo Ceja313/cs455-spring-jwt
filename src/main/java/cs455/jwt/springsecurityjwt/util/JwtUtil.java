@@ -9,12 +9,13 @@ import org.springframework.stereotype.Service;
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.UUID;
 import java.util.function.Function;
 
 @Service
 public class JwtUtil {
 
-    private String SECRET_KEY = "cs455";
+    private String SECRET_KEY = UUID.randomUUID().toString();
 
     public String extractUsername(String token) {
         return extractClaim(token, Claims::getSubject);
